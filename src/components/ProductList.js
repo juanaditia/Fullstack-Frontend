@@ -15,6 +15,10 @@ const ProductList = () => {
     console.log(response.data);
   };
 
+  const deletedProduct = async (id) => {
+    await axios.delete(`http://localhost:5000/${id}`);
+  };
+
   return (
     <>
       <div className="bg-white shadow-md rounded my-6">
@@ -71,18 +75,18 @@ const ProductList = () => {
                   {product.isActive}{" "}
                 </td>
                 <td className="py-4 px-6 border-b border-gray-100">
-                  <a
-                    href="#"
+                  <Link
+                    to={`/edit/${product.id}`}
                     className="text-gray-50 font-bold py-1 px-3 rounded text-xs bg-green-600 hover:bg-green-700"
                   >
                     Edit
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <button
+                    onClick={() => deletedProduct(product.id)}
                     className="text-gray-50 font-bold py-1 px-3 rounded text-xs bg-red-600 hover:bg-red-700"
                   >
                     Deleted
-                  </a>
+                  </button>
                 </td>
               </tr>
             ))}

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import AddProduct from "./components/AddProduct";
 import ProductList from "./components/ProductList";
+import UpdateProduct from "./components/UpdateProduct";
 
 function App() {
   return (
@@ -15,6 +16,10 @@ function App() {
 
           <Route path="/add">
             <AddProduct />
+          </Route>
+
+          <Route path="/edit/:id">
+            <UpdateProduct />
           </Route>
         </Switch>
       </div>
